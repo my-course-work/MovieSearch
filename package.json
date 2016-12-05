@@ -1,0 +1,17 @@
+{
+  "name": "cs4241-a3-byliuyang",
+  "version": "0.0.1",
+  "description": "WPI CS 4241 Assignment 3",
+  "author": "Yang Liu",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "github-markdown-css": "^2.4.1",
+    "highlight.js": "^9.8.0",
+    "imdb-api": "^2.2.0",
+    "marked": "^0.3.6",
+    "pug": "^2.0.0-beta6"
+  }
+}

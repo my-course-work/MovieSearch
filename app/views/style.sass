@@ -1,0 +1,759 @@
+/*Style your own assignment! This is fun! */
+@import url('https://fonts.googleapis.com/css?family=Raleway')
+
+/* Colors */
+$black : #000
+$red : #CE3535
+$red-trans : rgba(206, 53, 53, 0.3)
+$trans-white: rgba(255, 255, 255, 0.1)
+$less-trans-white: rgba(255, 255, 255, 0.4)
+$trans-black: rgba(0, 0, 0, 0.1)
+$white : #FFFFFF
+$grey : #5B5B5B
+$media-grey: #989A9A
+$lighter-grey: #F6F6F6
+$light-grey : #F1F1F1
+$trans-grey: rgba(12, 12, 12, 0.12)
+$less-light-grey : #aBaBaB
+$transparent-grey: rgba(0, 0, 0, 0.05)
+$dark-grey: #8A8A8A
+$darker-grey: #757575
+$blue: rgba(17, 127, 255, 0.9)
+$green: #179F25
+$trans-blue: rgba(0, 122, 255, 0.2)
+$pink: #E91E63
+$brown: #795548
+
+/* Shadows */
+$black-shadow : 0 1px 3px rgba(0, 0, 0, 0.20)
+
+/* Dimensions */
+$tab-width: 100px
+
+/* Border radius */
+$box-radius: 4px
+
+/* Transitions */
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1)
+$easeOutQuart-600: 600ms $easeOutQuart
+$easeOutQuart-400: 400ms $easeOutQuart
+$search-input-height: 28px
+
+$share-result-dialog-width: 370px
+$share-result-dialog-height: 152px
+
+/* For iPhone */
+@media (min-width: 320px) and (max-width: 680px)
+  .center
+    margin: 0 10px
+
+  .center
+    &.float
+      margin: 0
+      left: 10px
+      right: 10px
+
+  header
+    &.active
+      background-color : $white
+      .center
+        margin: 0 10px
+      >i
+        visibility: hidden
+    >i
+      visibility: visible
+    .center
+      margin: 0 56px 0 5%
+  .movie
+    display: block
+    text-align: left
+    &:not(:last-child)
+      margin-bottom: 20px
+    padding: 20px
+    margin-left: 20px
+    margin-right: 20px
+    min-height: 240px
+    img
+      width: 100%
+      height: auto
+      box-shadow: $black-shadow
+    h1
+      text-align: center
+      padding: 30px 0
+      width: 100%
+    section
+      width: 100%
+
+  .dialog#share-result-dialog
+    &.active
+      width: auto
+      margin-left: 0
+      margin-top: calc(-#{$share-result-dialog-height} / 2)
+      height: $share-result-dialog-height
+      left: 5px
+      right: 5px
+
+@media (min-width: 681px)
+  .center
+    width: 80%
+    margin: 0 auto
+  .center
+    &.float
+      left: 10%
+
+  header
+    >i
+      visibility: hidden
+
+  .movie
+    box-shadow: $black-shadow
+    display: flex
+
+    img
+      width: 160px
+      height: 240px
+
+
+  .dialog#share-result-dialog
+    &.active
+      margin-left: calc(-#{$share-result-dialog-width} / 2)
+      margin-top: calc(-#{$share-result-dialog-height} / 2)
+      width: $share-result-dialog-width
+      height: $share-result-dialog-height
+
+
+@media (min-width: 1025px)
+  .center
+    width: 60%
+    margin: 0 auto
+  .center
+    &.float
+      left: 20%
+
+
+/* for desktop devices */
+body
+  margin : 0
+  font-family : 'Raleway', sans-serif
+  text-align : center
+  background-color : $light-grey
+
+$search-input-height: 28px
+header
+  position: absolute
+  z-index: 3
+  top: 0
+  left: 0
+  right: 0
+  &.active
+    background-color : $white
+    .center
+      .logo
+        width: 0
+        opacity: 0
+        a
+          color: $black
+      div.search-form
+        background-color: $trans-black
+        div.search
+          div.search-field
+            input[type="text"]
+              color: $black
+              &::-webkit-input-placeholder
+                color: $less-light-grey
+          div.submit-button
+            i
+              color: $black
+
+  >i
+    cursor: pointer
+    float: right
+    position: absolute
+    right: 16px
+    z-index: 10
+    top: calc((100% - 24px) / 2)
+    color : $white
+  transition: all $easeOutQuart-600
+  background-color : $red
+  padding : 10px 0
+  box-shadow: $black-shadow
+  .center
+    display: flex
+    font-size: 1.3em
+    font-weight: bolder
+    .logo
+      text-align: left
+      width: 168px
+      height: 28px
+      font-size: 22px
+      white-space: nowrap
+      display: inline-block
+      overflow: hidden
+      transition: all $easeOutQuart-600
+      a
+        color : $white
+        transition: all $easeOutQuart-600
+    div.search-form
+      position: relative
+      flex: 1
+      //margin: 0 0 0 20px
+      border-radius: 4px
+      transition: all $easeOutQuart-600
+      background-color: $trans-white
+      div.search
+        padding: 0
+        margin: 0
+        display: flex
+        white-space: nowrap
+        div.search-field
+          position: relative
+          flex: 1
+          input[type="text"]
+            &:focus
+              outline: none
+            font-size: 0.8em
+            position: absolute
+            left: 0
+            box-sizing: border-box
+            border-radius: 2px 0 0 2px
+            width: 100%
+            padding: 2px 0 2px 10px
+            height: $search-input-height
+            margin: 0
+            border: 0
+            background: none
+            color: $white
+            transition: all $easeOutQuart-600
+            &::-webkit-input-placeholder
+              color: $less-trans-white
+              transition: all $easeOutQuart-600
+
+        div.submit-button
+          display: inline-block
+          padding: 0 6px
+          height: $search-input-height
+          position: relative
+          text-align: center
+          cursor: pointer
+          i
+            color : $white
+            margin: 2px 0
+            font-size: 24px
+            width: 24px
+            height: 24px
+            transition: all $easeOutQuart-600
+
+.search-result
+  position: relative
+  z-index: 1
+  &.active
+    margin-top: 0
+  margin-top: -100%
+  background-color: $white
+  box-shadow: $black-shadow
+  transition: all $easeOutQuart-600
+  padding: 0
+  list-style : none
+  li
+    text-align: left
+    padding: 10px 20px
+    &:hover
+      background-color: $lighter-grey
+    span
+      background-color: $trans-blue
+
+.content-block
+  background-color: $white
+  box-shadow: $black-shadow
+  border-radius: $box-radius
+
+#content
+  position: relative
+  z-index: 0
+  margin: 68px auto 80px auto
+
+.center
+  &.float
+    top: 48px
+    z-index: 2
+    position: absolute
+
+a
+  text-decoration: none
+
+#black-cover
+  z-index: 1
+  position: absolute
+  width: 100%
+  top : 0
+  background-color: rgba(0, 0,0, 0.2)
+
+/* style movie */
+#content
+  &.center
+    &.movies
+      >ul
+        padding: 0
+        margin-left : 0
+        list-style : none
+
+.movie
+  @extend .card-view
+  font-size: 1.0em
+  position: relative
+  transition: all $easeOutQuart-600
+  left: 0
+  overflow: hidden
+
+  text-align: left
+  &:not(:last-child)
+    margin-bottom: 20px
+  padding: 20px
+  img
+    box-shadow: $black-shadow
+  h1
+    padding: 4px
+    margin: 0 0 10px 0
+  section
+    padding-left: 20px
+    flex: 1
+  input
+    font-size: 1.0em
+    width: 100%
+    border-radius: 4px
+    outline: none
+    border: none
+    padding: 4px 10px 4px 10px
+    box-sizing: border-box
+  input
+    &:focus
+      box-shadow: 0 0 2px $red
+  textarea
+    font-size: 1.0em
+    width: 100%
+    border-radius: 4px
+    outline: none
+    border: none
+    padding: 4px 10px
+    min-height: 120px
+    box-sizing: border-box
+    &:focus
+      box-shadow: 0 0 2px $red
+  .editing
+    padding: 2px 0
+  section
+    table
+      width: 100%
+      tbody
+        tr
+          td
+            padding: 8px 10px
+            word-break: break-all
+            vertical-align: top
+            &:first-child
+              max-width: 100px
+              min-width: 80px
+              text-align: right
+              font-weight: bolder
+              padding-right: 10px
+            &:not(:first-child)
+              width: 99%
+
+.floating-button
+  float: right
+  position: fixed
+  z-index: 4
+  color: white
+  box-shadow: $black-shadow
+  border-radius: 50%
+  cursor: pointer
+  transition: all $easeOutQuart-600
+  overflow: hidden
+
+
+.floating-hidden-button
+  @extend .floating-button
+  opacity: 0
+  &.active
+    opacity: 1
+    padding: 20px
+    i.material-icons
+      font-size: 24px
+    height: 24px
+    width: 24px
+    right: 10px
+  right: 42px
+  z-index: 4
+  padding: 0
+  i.material-icons
+    font-size: 0
+  height: 0
+  width: 0
+
+#scroll-up-button
+  @extend .floating-hidden-button
+  background-color: $red
+  &.active
+    bottom: 10px
+  bottom: 42px
+
+.share-result-icon
+  position: absolute
+  top: 20px
+  left: 20px
+  float: left
+  transition: all $easeOutQuart-600
+
+#share-result-button
+  @extend .floating-button
+  opacity: 0
+  &.active
+    opacity: 1
+  padding: 20px
+  i.material-icons
+    font-size: 24px
+    &:before
+      @extend .share-result-icon
+      content: "share"
+    &:after
+      opacity: 0
+      transform: rotate(-90deg)
+      @extend .share-result-icon
+      content: "link"
+
+  height: 24px
+  width: 24px
+  right: 10px
+  background-color: $pink
+  bottom: 94px
+  &:hover
+    i.material-icons
+      &:before
+        opacity: 0
+        transform: rotate(90deg)
+      &:after
+        opacity: 1
+        transform: rotate(0deg)
+
+
+#done-button
+  @extend .floating-hidden-button
+  background-color: $green
+  top: 100px
+  &.active
+    top: 68px
+
+footer
+  font-weight: bolder
+  border-top: 1px solid $light-grey
+  margin-top: 80px
+  font-size: 1.3em
+  a
+    &.active
+      text-decoration: underline
+    color : $red
+
+.button-ripple
+  position: relative
+  overflow: hidden
+  border: none
+  width: 180px
+  height : 34px
+  color : $red
+  transition: background-color $easeOutQuart-400
+  &:hover
+    cursor: pointer
+  background: none
+  font-size: 1.2em
+  &:focus
+    outline: 0
+  &:focus
+    cursor: pointer
+    &:after
+      visibility: visible
+      animation: ripple 1s ease-out
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    left: 50%
+    top: 50%
+    width: 200px
+    height: 200px
+    margin-left: -100px
+    margin-top: -100px
+    background-color: $red-trans
+    border-radius: 100%
+    opacity: 1
+    transform: scale(0)
+    visibility: hidden
+
+.dialog
+  position: fixed
+  padding: 0
+  z-index: 2
+  box-shadow: $black-shadow
+  text-align: left
+  width: 0
+  height: 0
+  left: 50%
+  top: 50%
+  margin: 0
+  overflow: hidden
+  &.active
+    opacity: 1
+  opacity: 0
+  .content
+    overflow: hidden
+    position: relative
+  button
+    @extend .button-ripple
+
+  input
+    border-top: 0
+    border-left: 0
+    border-right: 0
+    text-align: center
+    border-bottom: 3px solid $red
+    padding-bottom: 4px
+    width: 100%
+    font-size: 1.1em
+    font-weight : bolder
+    color : $grey
+    margin-bottom: 20px
+    outline: 0
+
+@keyframes ripple
+  0%
+    transform: scale(0)
+  30%
+    transform: scale(1)
+  100%
+    opacity: 0
+    transform: scale(1)
+
+.dialog#share-result-dialog
+  padding: 30px 30px 20px 30px
+  h1
+    text-align: left
+    margin: 0 0 10px 0
+    font-size: 1.4em
+  p
+    white-space: nowrap
+    margin: 0 0 20px 0
+    color: $grey
+
+  background-color: $white
+  box-shadow: $black-shadow
+  transition: all $easeOutQuart-600
+  .content
+    div
+      &:last-child
+        text-align: right
+
+.dialog#new-movie-dialog
+  text-align: center
+  padding: 0
+  .linear-view-two
+    padding: 0 20px 0 20px
+  h1
+    background: $red
+    color: $white
+    padding: 12px
+    margin: 0 0 20px 0
+    font-size: 1.4em
+
+  input
+    text-align: left
+  @extend .card-view
+  background-color: $white
+  box-shadow: $black-shadow
+  transition: all $easeOutQuart-600
+  &.active
+    @extend .center
+    margin-top: calc(-652px / 2)
+    height: 652px
+    width: 1000px
+    margin-left: calc(-1000px / 2)
+
+.actions
+  float: right
+  padding: 0
+  margin: 0
+  list-style: none
+  li
+    display: inline-block
+    height: 24px
+    width: 24px
+    &:not(:last-child)
+      margin-right: 20px
+    a
+      color: $dark-grey
+      &:hover
+        cursor: pointer
+        color: $red
+      i
+        width: 24px
+        height: 24px
+
+.add-movie-button
+  transition: all $easeOutQuart-600
+  color: $green
+  &:hover
+    opacity: 0.7
+  i
+    &.material-icons
+      font-size: 80px
+.text-input
+  display: block
+  background: transparent
+  margin: 0
+  border-top: none
+  border-left: none
+  border-right: none
+  border-bottom: 1px solid $trans-grey
+  font-size: 1.0em
+  padding: 1.0em 0
+  width: 100%
+  outline: none
+  box-sizing: border-box
+  resize: none
+  +
+    label
+      left: 0
+      position: absolute
+      z-index: -1
+      font-size: 1.0em
+      transition: all $easeOutQuart-400
+      width: 100%
+      text-align: left
+      top: 1.6em
+      bottom: 0
+      color: $media-grey
+      font-weight: bolder
+      box-sizing: border-box
+      &:after
+        transition: all $easeOutQuart-600
+        position: absolute
+        content: ''
+        bottom: 0
+        background-color: transparent
+        height: 2px
+        width: 0
+        left: 50%
+        opacity: 0
+  &.active
+    & +
+      label
+        color: $brown
+        top: 0
+        font-size: 0.8em
+        &:after
+          opacity: 1
+          left: 0
+          width: 100%
+          background-color: $brown
+.card-view
+  box-shadow: $black-shadow
+  border-radius: 4px
+  background-color: $white
+
+.new-movie
+  border-collapse: collapse
+  width: 100%
+  tr
+    td
+      white-space: nowrap
+      padding-bottom: 1.0em
+      &:first-child
+        text-align: right
+        padding-right: 10px
+        font-weight: bolder
+      &:last-child
+        width: 99%
+        text-align: left
+
+.image-box
+  display: block
+  box-sizing: border-box
+  position: relative
+  background-color: #FFF59D
+  border-radius: 4px
+  transition: all $easeOutQuart-600
+  vertical-align: top
+  max-width: 100%
+  min-height: 200px
+  img
+    display: none
+  &.active
+    min-height: 0
+    background-color: transparent
+    img
+      display: block
+      width: 100%
+      box-shadow: $black-shadow
+      background-color: $white
+    &:after
+      content: ""
+  &:after
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    color: #F57C00
+    margin-top: -12px
+    font-size: 20px
+    height: 24px
+    content: "Select an image to preview"
+  &:hover
+    cursor : pointer
+    opacity: 0.7
+
+.linear-view-two
+  margin: 0
+  padding: 0
+  >li
+    &:first-child
+      margin-right: 4%
+    display: inline-block
+    width: 48%
+    vertical-align: top
+
+#content.center
+  .new-movie
+    @extend .card-view
+    padding-bottom: 80px
+    h1
+      margin: 60px 0 70px 0
+
+
+.form-control
+  padding-top: 0.8em
+  &:not(:last-child)
+    margin-bottom: 1.2em
+  position: relative
+  z-index: 1
+  input[type='text']
+    @extend .text-input
+
+#new-movie-form
+  .linear-view-two
+    margin-bottom: 30px
+  button
+    @extend .button-ripple
+  textarea
+    @extend .text-input
+    height: 216px
+  ul
+    >li
+      >ul
+        list-style: none
+        padding-left: 0
+        >li
+          @extend .form-control
+
+[data-input-type=input], [data-input-type=textarea]
+  &:hover
+    &:not(.editing)
+      cursor: pointer
+      box-shadow: 0 0 4px $red-trans

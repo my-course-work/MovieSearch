@@ -1,0 +1,78 @@
+extends ../app/layout
+block header
+    div.search-form
+        div(class="search", id="search-form")
+            div(class="search-field")
+                input(type="text", name="q", value=query, autocomplete="off", placeholder="Please type in movie name")
+            div(class="submit-button", id="submit-button", title="Search movie")
+                i(class="material-icons") search
+block content
+    div.center.float
+        ul.search-result
+    #content.center.movies
+        a(href='/movies/new', class='add-movie-button', title='Add new movie')
+            i(class="material-icons") add
+        ul#movie-list
+        block footer
+            footer
+                p Want's to know how I build this?
+                p Checkout #[a(href="/README.md") README] here.
+
+block dialogs
+    div.dialog#share-result-dialog
+        div.content
+            h1 Share search result
+            p Share result with others through the following link.
+            div
+                input(value="http://localhost:8080/search?q=bat")
+            div
+                button Copy and close
+    div.dialog.center#new-movie-dialog
+        h1 Add New movie
+        div.content
+            div.new-movie
+                form(id='new-movie-form')
+                    ul.linear-view-two
+                        li
+                            ul
+                                li
+                                    input(type='text', class='text-input', name='movie[title]', autocomplete='off')
+                                    label Name
+                                li
+                                    input(type='text',class='text-input', name='movie[rating]', autocomplete='off')
+                                    label Rating
+                                li
+                                    input(type='text',class='text-input', name='movie[languages]', autocomplete='off')
+                                    label Languages
+                                li
+                                    input(type='text',class='text-input', name='movie[released]', autocomplete='off')
+                                    label Release Date
+                                li
+                                    input(type='text', class='text-input',name='movie[runtime]', autocomplete='off')
+                                    label Run Time
+                                li
+                                    input(type='text',class='text-input', name='movie[genres]', autocomplete='off')
+                                    label Genres
+                        li
+                            ul
+                                li
+                                    input(type='text',class='text-input', name='movie[director]', autocomplete='off')
+                                    label Director
+                                li
+                                    input(type='text',class='text-input', name='movie[writer]', autocomplete='off')
+                                    label Writer
+                                li
+                                    input(type='text',class='text-input', name='movie[actor]', autocomplete='off')
+                                    label Actor
+                                li
+                                    textarea(class='text-input', name='movie[plot]', rows='3', autocomplete='off')
+                                    label Plot
+            div
+                button(id='submit-new-movie-btn') Add movie
+block buttons
+    div#done-button
+        i(class="material-icons") done
+    div#share-result-button(title="Share the result", onclick="showSharedResultDialog()")
+        i(class="material-icons")
+    div#scroll-up-button(title="Scroll to the top", onclick="scrollToTop()")
+        i(class="material-icons") vertical_align_top

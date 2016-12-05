@@ -1,0 +1,9 @@
+extends app/layout
+block title
+    title README
+block styles
+    link(href="styles/github-markdown.css" rel="stylesheet")
+    link(href="styles/monokai-sublime.css" rel="stylesheet")
+block content
+    #content.center.markdown-body !{readme}
+

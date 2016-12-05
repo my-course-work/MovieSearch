@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        block title
+            title=''
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        link(rel='stylesheet', href='/styles/style.css')
+        block styles
+        script(src='/scripts/script.js')
+        block scripts
+    body
+        header
+            div.center
+                div.logo
+                    a(href="/", title="Go to movie search homepage") Movie Search
+                block header
+            i(class="material-icons") menu
+        block content
+        div#black-cover
+        block dialogs
+        block buttons
+        block flash-message
